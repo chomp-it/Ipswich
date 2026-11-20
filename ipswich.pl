@@ -40,7 +40,9 @@ sub gitStash {
 }
 
 sub gitGimme {
-    system('git checkout HEAD~1');
+    my $lastCommit = `git log -1 --format=%H`;
+    chomp $lastCommit;
+    system("git reset --hard $lastCommit");
 }
 
 my $request = @arguments ? lc($arguments[0]) : '';
