@@ -16,6 +16,18 @@ Here are a couple of things to know about Ipswich if you're coming from a VCS li
 - There's no need to initialize Ipswich like you do with Git and `Git init`.
 - Ipswich only tracks the last commit — each time you `stash` your changes, the previous saved changes are deleted.
 
+## Git wrapper
+
+Alternatively, you can use Ipswich as a Git wrapper.
+
+To enable this mode, set the env variable `IPSWICH_USE_GIT=1`.
+
+In this mode the core Ipswich commands turn into Git commands:
+
+`stash` adds all files (`git add .`) and commits them; 
+
+`gimme` runs `git reset --hard` on your last commit.
+
 # Install Ipswich
 
 First, make sure you have Perl installed.
